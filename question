@@ -1,0 +1,43 @@
+Write a program to group the words according to their lengths from a given string S using a Hash
+Table of size k with separate chaining. Assume that only alphabets are present in the string S
+and maximum size of the string is 500. The words of the string are grouped using the following
+formula.
+Index No = (length of word ∗ length of word)%k
+where % is the modulo operation and k is the size of hash table. If the string contains multiple
+occurrences of a word w, then it should not be added again in a group. Only the first occurrence
+of w is added to the group.
+Note: Hash table is implemented as an array in which each entry contains a head pointer to a
+linked list which contains the words of the same group. Words generating same Index No belong
+to the same linked list (refer sample output for explanation). Duplicate words are not allowed in
+the list. Each node of the linked list is of the following type.
+struct node{
+char *word; // word to be store
+struct node * next; //pointer to the next node
+};
+
+
+
+
+Input Format:
+• First line of the input contains an integer ‘k’, the size of the hash table.
+• Second line of the input contains a string/sentence of words.
+Output Format:
+• Each line of the output should print the index number and words in it, separated by a colon(:).
+• The words inside a group are separated by minus sign(-).
+• If no words are present in the group then print ‘null’ in place of words.
+Sample Input 1:
+3
+Write a program to create a hash table
+Sample Output 1:
+0:create
+1:Write-a-program-to-hash-table
+2:null
+Sample Input 2:
+5
+This program is a program to create a hash table
+Sample Output 2:
+0:table
+1:This-a-create-hash
+2:null
+3:null
+4:program-is-to
